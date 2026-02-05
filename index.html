@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpe Diem - Κέντρο Ψυχοθεραπείας</title>
+    
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'cd-lavender': '#e7ddff',
+                        'cd-dark': '#2c243b',
+                        'cd-purple': '#6a4c93',
+                        'cd-accent': '#7a60f7',
+                    },
+                    keyframes: {
+                        fadeEntrance: {
+                            'from': { opacity: '0', transform: 'scale(0.8)' },
+                            'to': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        pulsePremium: {
+                            '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(94, 75, 117, 0.15), 0 5px 10px rgba(94, 75, 117, 0.2)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 10px rgba(94, 75, 117, 0), 0 8px 20px rgba(94, 75, 117, 0.2)' },
+                            '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(94, 75, 117, 0), 0 5px 10px rgba(94, 75, 117, 0.2)' },
+                        },
+                        kenBurns: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.1)' },
+                        },
+                        slideUpFade: {
+                            'from': { opacity: '0', transform: 'translateY(40px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        buttonShine: {
+                            '0%': { left: '-150%' },
+                            '20%': { left: '150%' },
+                            '100%': { left: '150%' },
+                        },
+                        simpleFadeIn: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeUp: {
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'ken-burns': 'kenBurns 25s infinite alternate ease-in-out',
+                        'pulse-premium': 'pulsePremium 3s infinite cubic-bezier(0.66, 0, 0, 1)',
+                        'slide-up': 'slideUpFade 1.2s cubic-bezier(0.2,0.8,0.2,1) forwards',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- ICONS -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- HLS.js for Video -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <style>
+        /* Custom Styles */
+        body { font-family: 'Manrope', sans-serif; background-color: #f4f1fa; color: #2c243b; overflow-x: hidden; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .text-shadow-hero { text-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+        .reveal-active {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Hiding Scrollbar but keeping functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "hls.js": "https://esm.sh/hls.js@^1.6.15",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+<body>
+
+    <!-- --- NAVBAR --- -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full h-[90px] z-[1000] flex justify-between items-center px-5 md:px-10 transition-all duration-300 bg-transparent">
+        
+        <!-- Logo -->
+        <div class="relative z-10 flex items-center">
+            <div class="relative w-[60px] h-[60px] rounded-full bg-white border-2 border-white cursor-pointer opacity-0 animate-[fadeEntrance_1s_ease-out_forwards] hover:scale-105 transition-transform" onclick="window.scrollTo(0,0)">
+                <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696dfe884e42b9fe31d918a4.png" alt="Carpe Diem Logo" class="w-full h-full object-cover rounded-full block">
+                <div class="absolute top-0 left-0 w-full h-full rounded-full -z-10 animate-pulse-premium"></div>
+            </div>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex gap-6 items-center list-none">
+            <li><a href="#custom-code-FcRW2fuI3c" class="text-[#2c243b] font-semibold text-[0.95rem] tracking-[0.5px] px-3 py-2 rounded-xl transition-all hover:text-[#6a4c93] hover:bg-white/50">ΥΠΗΡΕΣΙΕΣ</a></li>
+            <li><a href="#section-xhiMnCY5Yd" class="text-[#2c243b] font-semibold text-[0.95rem] tracking-[0.5px] px-3 py-2 rounded-xl transition-all hover:text-[#6a4c93] hover:bg-white/50">ΣΥΝΕΡΓΑΤΕΣ</a></li>
+            <li><a href="#section-WfigpXzq9T" class="text-[#2c243b] font-semibold text-[0.95rem] tracking-[0.5px] px-3 py-2 rounded-xl transition-all hover:text-[#6a4c93] hover:bg-white/50">ΒΙΝΤΕΟ</a></li>
+            <li><a href="#stats-section" class="text-[#2c243b] font-semibold text-[0.95rem] tracking-[0.5px] px-3 py-2 rounded-xl transition-all hover:text-[#6a4c93] hover:bg-white/50">ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ</a></li>
+            <li><a href="#footer" class="text-[#2c243b] font-semibold text-[0.95rem] tracking-[0.5px] px-3 py-2 rounded-xl transition-all hover:text-[#6a4c93] hover:bg-white/50">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+            
+            <li class="ml-2">
+                <a href="https://www.instagram.com/carpe_diem_health?igsh=ZDV4YzlpZzV6YmRk&utm_source=qr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-4 py-2 rounded-full text-white font-bold text-xs uppercase tracking-wide transition-all hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(106,76,147,0.2)] hover:shadow-[0_6px_15px_rgba(106,76,147,0.3)] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]">
+                    Instagram
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@my_carpe_diem?_r=1&_t=ZN-93Q8n0fuQZa" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-4 py-2 rounded-full text-white font-bold text-xs uppercase tracking-wide transition-all hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(106,76,147,0.2)] hover:shadow-[0_6px_15px_rgba(106,76,147,0.3)] bg-black border border-white/10 hover:bg-[#1a1a1a]">
+                    TikTok
+                </a>
+            </li>
+        </ul>
+
+        <!-- Mobile Toggle -->
+        <button id="mobile-toggle" class="flex md:hidden flex-col justify-between items-center w-[30px] h-[30px] bg-transparent border-none cursor-pointer z-[1002] transition-all duration-300 gap-1" aria-label="Menu">
+            <span class="dot w-1.5 h-1.5 bg-[#7a60f7] rounded-full transition-all duration-300"></span>
+            <span class="dot w-1.5 h-1.5 bg-[#7a60f7] rounded-full transition-all duration-300"></span>
+            <span class="dot w-1.5 h-1.5 bg-[#7a60f7] rounded-full transition-all duration-300"></span>
+        </button>
+
+    </nav>
+
+    <!-- Mobile Overlay -->
+    <div id="mobile-overlay" class="fixed top-0 left-0 w-full h-screen bg-[#f4f1fa]/95 backdrop-blur-xl z-[1001] flex flex-col justify-center items-center transition-opacity duration-500 opacity-0 pointer-events-none">
+        
+        <!-- NEW Close Button (X) -->
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-[#2c243b] hover:text-[#7a60f7] transition-colors md:hidden cursor-pointer p-2">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+
+        <a href="#custom-code-FcRW2fuI3c" class="mobile-link text-[#2c243b] text-2xl font-semibold my-4 opacity-0 translate-y-5 transition-all duration-500 delay-100">ΥΠΗΡΕΣΙΕΣ</a>
+        <a href="#section-xhiMnCY5Yd" class="mobile-link text-[#2c243b] text-2xl font-semibold my-4 opacity-0 translate-y-5 transition-all duration-500 delay-200">ΣΥΝΕΡΓΑΤΕΣ</a>
+        <a href="#section-WfigpXzq9T" class="mobile-link text-[#2c243b] text-2xl font-semibold my-4 opacity-0 translate-y-5 transition-all duration-500 delay-300">ΒΙΝΤΕΟ</a>
+        <a href="#stats-section" class="mobile-link text-[#2c243b] text-2xl font-semibold my-4 opacity-0 translate-y-5 transition-all duration-500 delay-400">ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ</a>
+        
+        <div class="mt-8 flex flex-col gap-4 items-center">
+            <a href="#footer" class="mobile-link text-sm tracking-widest text-[#2c243b] font-bold mb-2 uppercase">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+            <a href="https://www.instagram.com/carpe_diem_health" class="px-6 py-2 rounded-full text-white font-bold text-sm uppercase tracking-wide bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]">Instagram</a>
+            <a href="https://www.tiktok.com/@my_carpe_diem" class="px-6 py-2 rounded-full text-white font-bold text-sm uppercase tracking-wide bg-black">TikTok</a>
+        </div>
+    </div>
+
+
+    <!-- --- HERO SECTION --- -->
+    <div id="home" class="relative w-full h-screen min-h-[700px] overflow-hidden font-montserrat flex items-center justify-start">
+        <!-- Bg Image -->
+        <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 animate-ken-burns" style="background-image: url('https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/6982e7a22dd9855731ec8791.jpg');"></div>
+        <!-- Gradient -->
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/65 via-black/30 to-transparent z-[1]"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 px-6 md:pl-[10%] max-w-[800px] text-white text-left">
+            <h1 class="font-playfair text-[clamp(2.5rem,7vw,7rem)] font-medium leading-none mb-5 opacity-0 text-shadow-hero animate-[slideUpFade_1.2s_cubic-bezier(0.2,0.8,0.2,1)_0.2s_forwards]">
+                Carpe <span class="italic text-[#7a60f7]">Diem</span>
+            </h1>
+            <h2 class="text-[clamp(1rem,2vw,2rem)] font-normal tracking-[4px] uppercase mb-2.5 flex items-center justify-start gap-5 opacity-0 animate-[slideUpFade_1.2s_cubic-bezier(0.2,0.8,0.2,1)_0.5s_forwards]">
+                <span class="hidden md:block w-[60px] h-[2px] bg-white"></span>
+                ΚΕΝΤΡΟ ΨΥΧΟΘΕΡΑΠΕΙΑΣ
+            </h2>
+            <p class="text-[1rem] md:text-[1.1rem] font-light mb-8 md:mb-12 opacity-0 animate-[slideUpFade_1.2s_cubic-bezier(0.2,0.8,0.2,1)_0.8s_forwards]">
+                Δανάη Μαρία Κανδηλιώτη & Συνεργάτες
+            </p>
+            <a href="#section-locations" class="relative inline-block py-4 px-8 md:py-5 md:px-12 border border-white/40 bg-white/10 backdrop-blur-md text-white uppercase tracking-[2px] text-[0.8rem] md:text-[0.9rem] font-semibold no-underline overflow-hidden transition-all duration-500 opacity-0 animate-[slideUpFade_1.2s_cubic-bezier(0.2,0.8,0.2,1)_1.1s_forwards] hover:bg-white hover:text-[#7a60f7] hover:border-white hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(122,96,247,0.4)] group">
+                <span class="relative z-10">ΤΟΠΟΘΕΣΙΕΣ</span>
+                <div class="absolute top-0 -left-[150%] w-full h-full bg-gradient-to-r from-transparent via-white/80 to-transparent skew-x-[-20deg] animate-[buttonShine_4s_infinite]"></div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- --- BIO SECTION --- -->
+    <div id="section-vie21rBgE8" class="relative pt-[100px] md:pt-[100px] px-5 pb-[30px] bg-[#e7ddff] bg-[radial-gradient(at_top_right,rgba(255,255,255,0.5)_0%,transparent_60%)] flex justify-center font-manrope overflow-hidden">
+        <div class="max-w-[1100px] w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center relative z-[2]">
+            <!-- Image Box -->
+            <div class="relative rounded-3xl h-[400px] md:h-[550px] w-full shadow-[0_20px_50px_rgba(45,36,56,0.15)] bg-[#dcd0f5] transition-all duration-400 group">
+                <div class="hidden md:block absolute top-5 left-5 -right-5 -bottom-5 border-2 border-white/60 rounded-3xl -z-10 transition-transform duration-400 group-hover:translate-x-2.5 group-hover:translate-y-2.5"></div>
+                <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696df352b34b644fefad7b3c.jpeg" alt="Δανάη Μαρία Κανδηλιώτη" class="block w-full h-full object-cover object-top rounded-3xl md:group-hover:-translate-y-2.5 md:group-hover:shadow-[0_30px_60px_rgba(45,36,56,0.25)] transition-all duration-400">
+            </div>
+            <!-- Text Box -->
+            <div class="text-[#2D2438] opacity-0 animate-[simpleFadeIn_1s_ease-out_0.2s_forwards]">
+                <span class="text-[0.85rem] uppercase tracking-[3px] text-[#937ab4] font-extrabold mb-5 inline-block border-b-2 border-[#937ab4]/30 pb-1">
+                    FOUNDERS OF CARPE DIEM <br> 
+                    <span class="text-[0.7em]">ΔΑΝΑΗ ΜΑΡΙΑ ΚΑΝΔΗΛΙΩΤΗ & ΑΡΙΣΤΟΤΕΛΗΣ ΖΩΓΚΟΣ</span>
+                </span>
+                <h2 class="font-playfair text-[2.2rem] md:text-[3rem] leading-[1.1] mb-[30px] text-[#2D2438]">
+                    Δανάη Μαρία Κανδηλιώτη
+                    <span class="block text-[1.6rem] font-normal text-[#5e4b75] italic mt-2.5">Ψυχολόγος – Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια (MSc)</span>
+                </h2>
+                <div class="space-y-6 text-[1.1rem] leading-[1.8] text-[#554a63] border-l border-[#937ab4]/30 pl-5">
+                    <p>Η Δανάη Μαρία Κανδηλιώτη είναι Ψυχολόγος – Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια (MSc) & ιδρύτρια του Κέντρου Ψυχοθεραπείας Carpe Diem, με παρουσία στο κέντρο της Αθήνας, στον Πειραιά & το Περιστερι.</p>
+                    <p>Διαθέτει πολυετή κλινική εμπειρία και έχει εκπαιδευτεί σε σύγχρονες, επιστημονικά τεκμηριωμένες θεραπευτικές προσεγγίσεις, με βασικό άξονα τη Γνωσιακή Συμπεριφορική Θεραπεία στην οποία και έχει πραγματοποιήσει μακροχρόνια εκπαίδευση. Στο έργο της εστιάζει ιδιαίτερα στις αγχώδεις διαταραχές, τις διατροφικές καθώς και τις διαταραχές διάθεσης και προσωπικότητας.</p>
+                    <p>Με γνώμονα την ενσυναίσθηση, τον σεβασμό και τη δημιουργία μιας ασφαλούς θεραπευτικής σχέσης, στόχος της είναι να βοηθά κάθε άνθρωπο να κατανοεί τον εαυτό του, να ενδυναμώνεται και να βελτιώνει ουσιαστικά την ποιότητα ζωής του.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --- SERVICES SECTION --- -->
+    <div id="custom-code-FcRW2fuI3c" class="bg-[#e7ddff] py-[30px] px-5 pb-[100px] font-manrope relative overflow-hidden">
+        <div class="absolute -top-[10%] -right-[10%] w-[60vw] h-[60vw] bg-[radial-gradient(circle,rgba(255,255,255,0.5)_0%,rgba(255,255,255,0)_70%)] pointer-events-none"></div>
+
+        <div class="max-w-[1280px] mx-auto relative z-10">
+            <div class="reveal-element text-center mb-[70px]">
+                <h2 class="font-playfair text-[2.5rem] md:text-[3.5rem] text-[#2D2438] mb-[15px] font-extrabold tracking-[-0.5px]">
+                    Υπηρεσίες Ψυχοθεραπείας & Συμβουλευτικής
+                </h2>
+                <p class="text-[1.2rem] text-[#5e4b75] max-w-[700px] mx-auto">
+                    Ολοκληρωμένες θεραπευτικές προσεγγίσεις για ενήλικες, ζευγάρια και οικογένειες.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] w-full" id="services-grid">
+                <!-- Service Cards Generated via JS -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --- TEAM SECTION --- -->
+    <div id="section-xhiMnCY5Yd" class="py-20 px-6 bg-[#e7ddff] font-manrope">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-center font-playfair text-4xl md:text-5xl font-bold text-[#2c243b] mb-16">
+                Οι συνεργάτες του Carpe Diem
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start" id="team-grid">
+                <!-- Team Cards Generated via JS -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --- VIDEO SECTION --- -->
+    <div id="section-WfigpXzq9T" class="py-24 px-6 bg-[#e7ddff] font-manrope">
+        <div class="max-w-7xl mx-auto space-y-20">
+            <!-- Video 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <span class="text-[#937ab4] tracking-widest text-sm font-bold mb-2 block">ΔΑΝΑΗ ΜΑΡΙΑ ΚΑΝΔΗΛΙΩΤΗ</span>
+                    <h3 class="font-playfair text-3xl font-bold text-[#2c243b] mb-6">3 Κλειδιά για τη Διαχείριση μιας Δύσκολης Μέρας</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Δεν είσαι ο μόνος/η που λυγίζει κάτω από την πίεση. Στο βίντεο αυτό αναλύουμε τρεις πυλώνες ψυχραιμίας:</p>
+                    <ul class="space-y-3 mb-6 text-gray-700">
+                        <li class="flex items-start gap-2"><span class="font-bold text-[#6a4c93]">Αποδοχή:</span> Έχεις δικαίωμα να αισθάνεσαι άσχημα, χωρίς ενοχές.</li>
+                        <li class="flex items-start gap-2"><span class="font-bold text-[#6a4c93]">Διαχείριση:</span> Ανακάλεσε μια μικρή "νίκη" ή συνήθεια που σε ηρεμεί.</li>
+                        <li class="flex items-start gap-2"><span class="font-bold text-[#6a4c93]">Προοπτική:</span> Το αύριο είναι μια νέα μέρα.</li>
+                    </ul>
+                    <p class="text-sm text-gray-600 bg-white/50 p-4 rounded-xl border-l-4 border-[#6a4c93]">Χρειάζεστε περισσότερη στήριξη; Δείτε πώς το MindTime Pro σας προσφέρει πρόσβαση σε ειδικούς.</p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <video id="video-1" controls class="w-full rounded-2xl shadow-xl aspect-video bg-black"></video>
+                </div>
+            </div>
+            <!-- Video 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                 <div class="order-1">
+                    <video id="video-2" controls class="w-full rounded-2xl shadow-xl aspect-video bg-black"></video>
+                </div>
+                <div class="order-2">
+                    <span class="text-[#937ab4] tracking-widest text-sm font-bold mb-2 block">ΔΑΝΑΗ ΜΑΡΙΑ ΚΑΝΔΗΛΙΩΤΗ</span>
+                    <h3 class="font-playfair text-3xl font-bold text-[#2c243b] mb-6">6 Βήματα για την Επίλυση Προβλημάτων</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">Νιώθετε ότι έχετε πελαγώσει; Ακολουθήστε αυτά τα 6 απλά βήματα:</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
+                         <li class="flex items-center gap-2"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#6a4c93] text-white flex items-center justify-center text-xs font-bold">1</span>Ορισμός του προβλήματος</li>
+                         <li class="flex items-center gap-2"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#6a4c93] text-white flex items-center justify-center text-xs font-bold">2</span>Λίστα Λύσεων</li>
+                         <li class="flex items-center gap-2"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#6a4c93] text-white flex items-center justify-center text-xs font-bold">3</span>Επιλογή εύκολης λύσης</li>
+                         <li class="flex items-center gap-2"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#6a4c93] text-white flex items-center justify-center text-xs font-bold">4</span>Σχεδιασμός Δράσης</li>
+                         <li class="flex items-center gap-2"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#6a4c93] text-white flex items-center justify-center text-xs font-bold">5</span>Εφαρμογή Σχεδίου</li>
+                         <li class="flex items-center gap-2"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#6a4c93] text-white flex items-center justify-center text-xs font-bold">6</span>Αξιολόγηση Αποτελέσματος</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --- STATS SECTION --- -->
+    <div id="stats-section" class="relative py-24 px-6 flex items-center justify-center font-manrope overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-cover bg-scroll md:bg-fixed bg-center z-0" style="background-image: url('https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696e6251c7f17f7713c16a2c.jpg');"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-[#2c243b]/80 z-10"></div>
+        <div class="relative z-20 max-w-6xl w-full grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+            <div class="p-4">
+                <div class="font-playfair text-5xl md:text-6xl font-bold mb-2 text-[#a78bfa] flex justify-center"><span class="stat-counter" data-target="9">0</span>+</div>
+                <div class="text-sm md:text-base font-medium tracking-wide opacity-90">Διαφορετικοί<br>Συνεργάτες</div>
+            </div>
+            <div class="p-4">
+                <div class="font-playfair text-5xl md:text-6xl font-bold mb-2 text-[#a78bfa] flex justify-center"><span class="stat-counter" data-target="6">0</span>+</div>
+                <div class="text-sm md:text-base font-medium tracking-wide opacity-90">Κλάδοι<br>Υπηρεσιών</div>
+            </div>
+            <div class="p-4">
+                <div class="font-playfair text-5xl md:text-6xl font-bold mb-2 text-[#a78bfa] flex justify-center"><span class="stat-counter" data-target="100">0</span>%</div>
+                <div class="text-sm md:text-base font-medium tracking-wide opacity-90">Εξατομικευμένη<br>Φροντίδα</div>
+            </div>
+            <div class="p-4">
+                <div class="font-playfair text-5xl md:text-6xl font-bold mb-2 text-[#a78bfa] flex justify-center"><span class="stat-counter" data-target="500">0</span>+</div>
+                <div class="text-sm md:text-base font-medium tracking-wide opacity-90">Ευχαριστημένοι<br>Πελάτες</div>
+            </div>
+        </div>
+        <div class="absolute bottom-4 right-4 md:bottom-10 md:right-10 z-30 bg-white/10 backdrop-blur-lg border border-white/20 p-4 rounded-xl text-white text-right hidden lg:block">
+            <h4 class="font-bold text-lg mb-1">Ωράριο Λειτουργίας</h4>
+            <p class="text-sm opacity-80">Δευτέρα με Παρασκευή</p>
+            <p class="text-xs opacity-60">(κατόπιν ραντεβού)</p>
+        </div>
+    </div>
+
+
+    <!-- --- GALLERY SECTION --- -->
+    <div class="py-20 bg-white">
+        <div class="max-w-[1400px] mx-auto px-5">
+            <!-- Removed the H2 Title "Χώρος & Στιγμές" as requested -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2" id="gallery-grid">
+                <!-- Gallery items via JS -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --- LOCATIONS SECTION (Google Maps) --- -->
+    <div id="section-locations" class="py-24 bg-[#f9f7ff] px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="font-playfair text-4xl font-bold text-[#2c243b] mb-4">Οι Τοποθεσίες μας</h2>
+            <div class="w-20 h-1 bg-[#6a4c93] mx-auto mb-16"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Location 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-16 h-16 bg-[#a78bfa] rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin"></i>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-[#2c243b] mb-2">Αθήνα (Εξάρχεια)</h3>
+                    <p class="text-gray-600">Χαλκοκονδύλη 5 (6ος όροφος)</p>
+                    <div class="mt-8 h-48 w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner">
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Χαλκοκονδύλη+5,+Αθήνα&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-16 h-16 bg-[#7a60f7] rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin"></i>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-[#2c243b] mb-2">Πειραιάς</h3>
+                    <p class="text-gray-600">Γρηγορίου Λαμπράκη 144 (6ος όροφος)</p>
+                    <div class="mt-8 h-48 w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner">
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Γρηγορίου+Λαμπράκη+144,+Πειραιάς&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-16 h-16 bg-[#a78bfa] rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin"></i>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-[#2c243b] mb-2">Περιστέρι</h3>
+                    <p class="text-gray-600">Ερυθραίας 15 (1ος όροφος)</p>
+                    <div class="mt-8 h-48 w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner">
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Ερυθραίας+15,+Περιστέρι&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --- FOOTER --- -->
+    <footer id="footer" class="bg-[#e7ddff] pt-20 pb-10 px-6 font-manrope">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+            <!-- Brand -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                 <div class="w-24 h-24 rounded-full bg-white p-1 shadow-lg mb-6">
+                    <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696dfe884e42b9fe31d918a4.png" alt="Logo" class="w-full h-full object-cover rounded-full">
+                 </div>
+                 <h3 class="font-playfair text-2xl font-bold text-[#2c243b]">Carpe Diem</h3>
+                 <p class="text-[#6a4c93] text-sm font-medium tracking-wide">ΚΕΝΤΡΟ ΨΥΧΟΘΕΡΑΠΕΙΑΣ</p>
+            </div>
+            <!-- Contact -->
+            <div class="flex flex-col gap-6 text-[#2c243b] items-center md:items-start">
+                <h4 class="font-playfair text-xl font-bold mb-2">Επικοινωνία</h4>
+                <a href="tel:6988250491" class="flex items-center gap-3 hover:text-[#6a4c93] transition-colors"><i data-lucide="phone" class="text-[#6a4c93]"></i><span class="font-semibold">698 825 0491</span></a>
+                <a href="tel:6981421964" class="flex items-center gap-3 hover:text-[#6a4c93] transition-colors"><i data-lucide="phone" class="text-[#6a4c93]"></i><span class="font-semibold">698 142 1964</span></a>
+                <a href="mailto:carpediem@yahoo.gr" class="flex items-center gap-3 hover:text-[#6a4c93] transition-colors"><i data-lucide="mail" class="text-[#6a4c93]"></i><span>carpediem@yahoo.gr</span></a>
+            </div>
+            <!-- Social -->
+            <div class="flex flex-col gap-6 items-center md:items-start">
+                 <h4 class="font-playfair text-xl font-bold mb-2">Social Media</h4>
+                 <div class="flex gap-4">
+                     <a href="https://www.instagram.com/carpe_diem_health" target="_blank" rel="noreferrer" class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-[#bc1888] hover:-translate-y-1 transition-transform"><i data-lucide="instagram"></i></a>
+                     <a href="https://www.tiktok.com/@my_carpe_diem" target="_blank" rel="noreferrer" class="w-12 h-12 rounded-full bg-black shadow-md flex items-center justify-center text-white hover:-translate-y-1 transition-transform"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+                 </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-[#2c243b]/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4">
+            <p>© 2024 Carpe Diem. All rights reserved.</p>
+            <p class="flex items-center gap-1">Designed by <a href="https://advonmedia.com" class="font-bold text-[#6a4c93] hover:underline">Advon Media</a></p>
+        </div>
+    </footer>
+
+
+    <!-- --- SCRIPTS (Data & Logic) --- -->
+    <script>
+        // 1. DATA: Services
+        const services = [
+            { id: "01", title: "Ατομική Ψυχοθεραπεία Ενηλίκων", subtitle: "Διαχείριση άγχους, διάθεσης & προσωπικότητας.", items: ["Αγχώδεις διαταραχές (γενικευμένο άγχος, κρίσεις πανικού, φοβίες)", "Ιδεοψυχαναγκαστική Διαταραχή (OCD)", "Διαταραχές διάθεσης (κατάθλιψη, διπολική διαταραχή)", "Διαταραχές προσωπικότητας", "Χαμηλή αυτοεκτίμηση & δυσκολίες αυτοεικόνας", "Διατροφικές Διαταραχές & Ψυχωσικά σύνδρομα", "Διαχείριση θυμού & Αντιμετώπιση εξαρτήσεων", "Σωματοδυσμορφικές διαταραχές"] },
+            { id: "02", title: "Γνωσιακή Συμπεριφορική Θεραπεία (CBT)", subtitle: "Αναδόμηση σκέψεων & τροποποίηση συμπεριφοράς.", items: ["Αναγνώριση και αναδόμηση δυσλειτουργικών σκέψεων", "Εκπαίδευση σε γνωσιακά λάθη & Ψυχοεκπαίδευση", "Αντιμετώπιση φαύλων κύκλων συντήρησης", "Κατανόηση αλληλεπίδρασης συμπεριφοράς, σκέψεων και συναισθημάτων", "Τροποποίηση δυσλειτουργικών προτύπων", "Σύνδεση παρελθόντος & τραύματος με το παρόν", "Εκπαίδευση σε πρακτικές ασκήσεις CBT"] },
+            { id: "03", title: "Θεραπεία Ζεύγους", subtitle: "Ενίσχυση επικοινωνίας και συναισθηματικής σύνδεσης.", items: ["Βελτίωση επικοινωνίας και συναισθηματικής σύνδεσης", "Διαχείριση συγκρούσεων", "Αντιμετώπιση κρίσεων στη σχέση", "Ενίσχυση εμπιστοσύνης και συνεργασίας", "Υποστήριξη σε μεταβατικές φάσεις (γονεϊκότητα, αλλαγές ζωής)"] },
+            { id: "04", title: "Συμβουλευτική Γονέων", subtitle: "Υποστήριξη στον γονεϊκό ρόλο & την οικογένεια.", items: ["Ενίσχυση γονεϊκών δεξιοτήτων", "Διαχείριση συμπεριφοράς παιδιών και εφήβων", "Κατανόηση συναισθηματικών αναγκών του παιδιού", "Όρια, επικοινωνία και ρόλοι στην οικογένεια", "Υποστήριξη γονέων σε απαιτητικές φάσεις ανάπτυξης"] },
+            { id: "05", title: "Συμβουλευτική & Ψυχοεκπαίδευση", subtitle: "Διαχείριση κρίσεων & επαγγελματική ενδυνάμωση.", items: ["Υποστήριξη σε δύσκολες αποφάσεις και αλλαγές ζωής", "Διαχείριση κρίσεων", "Συμβουλευτική Επιχειρήσεων (HR)", "Ενδυνάμωση και αυτογνωσία"] },
+            { id: "06", title: "Τρόποι Ψυχοθεραπείας", subtitle: "Ευέλικτες επιλογές συνεδριών για κάθε ανάγκη.", items: ["Δια ζώσης: Εξάρχεια, Πειραιάς, Περιστέρι", "Online Ψυχοθεραπεία (Zoom, Viber, Skype)", "Κατ’ οίκον ψυχοθεραπεία"] }
+        ];
+
+        // 2. DATA: Team
+        const teamMembers = [
+            { name: "Δανάη Οικονόμου", img: "https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696df7d3e125ef476e2fe3c7.jpg", desc: "Η Δανάη Οικονόμου, απόφοιτη Ψυχολογίας ΕΚΠΑ με MSc στην Κλινική Νευροψυχολογία, έχει εκπαιδευτεί στη Γνωσιακή Ψυχοθεραπεία (EABCT) και στην Κλινική Ψυχοπαθολογία («Παναγιώτης Ουλής»)." },
+            { name: "Αγγελική Αποστολοπούλου", img: "https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696df7d3d403b73ddb1548cd.jpg", desc: "Η Αγγελική Αποστολοπούλου, απόφοιτη Ψυχολογίας ΕΚΠΑ και Ιατρικής Σχολής Αθηνών (MSc), είναι εκπαιδευμένη στη Γνωσιακή Συμπεριφοριστική Θεραπεία (EABCT) και τη Χοροθεραπεία." },
+            { name: "Σοφία Μπουρελάκη", img: "https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696df7d34e42b938c1d78d8f.jpg", desc: "Η Σοφία Μπουρελάκη, κάτοχος MSc Ψυχολογίας (Κρήτη) και Κοινωνικής Ψυχολογίας (Lancaster), έχει εκπαιδευτεί στη Γνωσιακή Ψυχοθεραπεία και διαθέτει εμπειρία στην υποστήριξη εφήβων και ενηλίκων.", objectPos: "object-[60%_35%]" },
+            { name: "Ραφαήλ Σίμωσης", img: "https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696df819e125efdd822ff20f.jpg", desc: "Ο Ραφαήλ Σίμωσης, αριστούχος απόφοιτος Ψυχολογίας ΕΚΠΑ και κάτοχος MSc της Ιατρικής Σχολής ΑΠΘ, έχει εκπαιδευτεί στη Γνωσιακή Συμπεριφορική Θεραπεία (EABCT) με εστίαση στην αντιμετώπιση άγχους και φοβιών." },
+            { name: "Σήλια Βενετσάνου", img: "https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696e6251f84d072ee2ff94cb.jpg", desc: "Η Σήλια Βενετσάνου, απόφοιτη Ψυχολογίας ΕΚΠΑ και κάτοχος MSc στη Γνωσιακή Συμπεριφοριστική Ψυχοθεραπεία (UCLan), έχει πραγματοποιήσει πρακτική στη θεραπεία rTMS και πληθώρα σχετικών επιμορφώσεων." },
+            { name: "Αναστασία Μεντζελίδη", img: "https://github.com/agelmet/Image-hosting-/blob/main/anastasia.jpg?raw=true", desc: "Η Αναστασία Μεντζελίδη, απόφοιτη Ψυχολογίας (Sheffield) και MSc στις Συναισθηματικές Διαταραχές (King’s College), είναι εκπαιδευμένη στη CBT (EABCT) με κλινική εμπειρία σε Ελλάδα και Βρετανία." },
+            { name: "Ελένη Σινάνου", img: "https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696df7d3439b6bc3b46cca80.jpg", desc: "Η Ελένη Σινάνου, απόφοιτη Ψυχολογίας ΕΚΠΑ και MSc Εφαρμοσμένης Κλινικής Ψυχολογίας (UCLan), έχει εκπαιδευτεί στη Γνωσιακή Συμπεριφορική Θεραπεία (EABCT).", objectPos: "object-[center_30%]" },
+            { name: "Βίκη Αφεντουλίδου", img: "https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696e6251eecbfa1f11385511.jpg", desc: "Η Βίκη Αφεντουλίδου, απόφοιτη Ψυχολογίας ΑΠΘ και εκπαιδευμένη στη Γνωσιακή Συμπεριφορική Θεραπεία, παρέχει ψυχολογική υποστήριξη σε παιδιά, εφήβους και ενήλικες." },
+            // NEW MEMBERS
+            { name: "Μελιτίνη Σηφάκη", img: "https://github.com/agelmet/Image-hosting-/blob/main/melina.jpg?raw=true", initials: "ΜΣ", desc: "Η Μελιτίνη Σηφάκη είναι κάτοχος BSc Ψυχολογίας του Εθνικού & Καποδιστριακού Πανεπιστημίου Αθηνών ενώ παράλληλα έχει εκπαιδευτεί στη Γνωσιακή–Συμπεριφορική Ψυχοθεραπεία. Παράλληλα έχει παρακολουθήσει επιμορφωτικά σεμινάρια στον ευρύτερο τομέα της ψυχικής υγείας και στο πλαίσιο της επαγγελματικής της πορείας έχει αποκτήσει εμπειρία στην παροχή ψυχολογικής υποστήριξης σε ενήλικες και σε ευάλωτες ομάδες πληθυσμού." },
+            { name: "Νίκη Παναγοπούλου", img: null, initials: "ΝΠ", desc: "Η Νίκη Παναγοπούλου είναι κάτοχος BSc Ψυχολογίας Πανεπιστημίου της Κρήτης & MSc της Ιατρικής Σχολής Αθηνών. Έχει εκπαιδευτεί στην Γνωσιακή Συμπεριφορική Ψυχοθεραπεία (ΕΠΙΨΥ) ενώ, παράλληλα, είναι επιστημονική συνεργάτιδα του Ψυχομετρικού Εργαστηρίου της Α’ Πανεπιστημιακής Ψυχιατρικής Κλινικής στο Αιγινήτειο Νοσοκομείο." },
+            { name: "Ευγενία", img: null, initials: "Ε", desc: "CV" }
+        ];
+
+        // 3. DATA: Gallery
+        const galleryImages = [
+            "https://storage.googleapis.com/msgsndr/61icdoMiJ2pHklO6mmKW/media/696e62514fade4a8593418f3.jpg",
+            "https://storage.googleapis.com/msgsndr/61icdoMiJ2pHklO6mmKW/media/696e62519b21f0538d3fe256.jpg",
+            "https://storage.googleapis.com/msgsndr/61icdoMiJ2pHklO6mmKW/media/696e6251df5fa55c217e5436.jpg",
+            "https://storage.googleapis.com/msgsndr/61icdoMiJ2pHklO6mmKW/media/696e6251eecbfaa78b385513.png",
+            "https://storage.googleapis.com/msgsndr/61icdoMiJ2pHklO6mmKW/media/696e5da815885e3ff0bda765.jpeg",
+            "https://storage.googleapis.com/msgsndr/61icdoMiJ2pHklO6mmKW/media/696e6251c7f17f7713c16a2c.jpg"
+        ];
+
+        // --- RENDER FUNCTIONS ---
+        
+        // Render Services
+        const servicesContainer = document.getElementById('services-grid');
+        services.forEach((service, index) => {
+            const html = `
+                <div class="reveal-element group bg-white/90 backdrop-blur-md border border-white/80 rounded-3xl p-[30px] md:p-[40px] relative transition-all duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)] shadow-[0_20px_40px_rgba(94,75,117,0.1)] hover:-translate-y-[15px] hover:shadow-[0_30px_60px_rgba(94,75,117,0.25)] hover:bg-white hover:z-10" style="transition-delay: ${index * 100}ms">
+                    <div class="absolute bottom-0 left-0 w-full h-[5px] bg-gradient-to-r from-[#a78bfa] to-[#f472b6] scale-x-0 origin-left transition-transform duration-400 group-hover:scale-x-100"></div>
+                    <div class="font-playfair text-[4rem] font-extrabold absolute top-5 right-6 opacity-10 text-[#2D2438] leading-none transition-all duration-400 group-hover:opacity-20 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:bg-gradient-to-r group-hover:from-[#a78bfa] group-hover:to-[#f472b6] group-hover:text-transparent group-hover:bg-clip-text">${service.id}</div>
+                    <h3 class="font-playfair text-[1.6rem] font-bold text-[#2D2438] mt-5 mb-2.5 leading-[1.3] relative z-10">${service.title}</h3>
+                    <p class="text-[0.95rem] text-[#887a9e] italic mb-6 border-b border-black/5 pb-4 relative z-10">${service.subtitle}</p>
+                    <ul class="list-none p-0 m-0 relative z-10">
+                        ${service.items.map(item => `<li class="text-[0.95rem] text-[#4a4a4a] mb-2.5 pl-5 relative"><span class="absolute left-0 top-2 w-1.5 h-1.5 bg-[#937ab4] rounded-full"></span>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            servicesContainer.innerHTML += html;
+        });
+
+        // Render Team
+        const teamContainer = document.getElementById('team-grid');
+        teamMembers.forEach((member) => {
+            // Use specific object position if defined, else default to top
+            const objectPosClass = member.objectPos || 'object-top';
+            
+            // Define special handling for specific members to remove gap on MOBILE
+            const isNoGapMember = ["Ραφαήλ Σίμωσης", "Σήλια Βενετσάνου"].includes(member.name);
+            
+            // Container Classes
+            // Mobile: 
+            //   isNoGapMember: 'w-full overflow-hidden relative shrink-0 bg-[#f4f1fa]' (Auto height)
+            //   Others: 'aspect-[3/4] ...' (Fixed ratio)
+            // Desktop (lg):
+            //   All: 'lg:aspect-[3/4]' (Fixed ratio for symmetry)
+            const containerClasses = isNoGapMember 
+                ? "w-full overflow-hidden relative shrink-0 bg-[#f4f1fa] lg:aspect-[3/4] lg:flex lg:items-center lg:justify-center" 
+                : "aspect-[3/4] w-full overflow-hidden relative shrink-0 bg-[#f4f1fa] flex items-center justify-center";
+
+            let imageContent = '';
+            if (member.img) {
+                // Image Classes
+                // Mobile:
+                //   isNoGapMember: 'w-full h-auto block'
+                //   Others: 'w-full h-full object-contain'
+                // Desktop (lg):
+                //   All: 'lg:w-full lg:h-full lg:object-cover' (Crop to fill)
+                
+                const imgClasses = isNoGapMember
+                    ? `w-full h-auto block lg:w-full lg:h-full lg:object-cover ${objectPosClass} transition-transform duration-500 group-hover:scale-110`
+                    : `w-full h-full object-contain lg:object-cover ${objectPosClass} transition-transform duration-500 group-hover:scale-110`;
+                    
+                imageContent = `<img src="${member.img}" alt="${member.name}" class="${imgClasses}">`;
+            } else {
+                imageContent = `
+                    <div class="w-full h-full bg-[#f9f7ff] flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                         <div class="w-24 h-24 rounded-full bg-[#e7ddff] flex items-center justify-center text-3xl font-playfair font-bold text-[#6a4c93] border-4 border-white shadow-md">
+                            ${member.initials}
+                         </div>
+                    </div>
+                `;
+            }
+
+            const html = `
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+                    <div class="${containerClasses}">
+                        ${imageContent}
+                    </div>
+                    <div class="p-6 flex flex-col">
+                        <h3 class="font-playfair text-xl font-bold text-[#2c243b] mb-3">${member.name}</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">${member.desc}</p>
+                    </div>
+                </div>
+            `;
+            teamContainer.innerHTML += html;
+        });
+
+        // Render Gallery
+        const galleryContainer = document.getElementById('gallery-grid');
+        galleryImages.forEach((src, idx) => {
+            const html = `
+                <div class="relative aspect-square overflow-hidden group cursor-pointer">
+                    <img src="${src}" alt="Gallery ${idx + 1}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-[#6a4c93]/0 group-hover:bg-[#6a4c93]/20 transition-colors duration-300"></div>
+                </div>
+            `;
+            galleryContainer.innerHTML += html;
+        });
+
+        // --- INTERACTIVITY ---
+
+        // Mobile Menu
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const dots = document.querySelectorAll('.dot');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            if(isMenuOpen) {
+                mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                mobileOverlay.classList.add('opacity-100', 'pointer-events-auto');
+                
+                // Animate dots to X
+                dots[0].style.transform = "rotate(45deg) translate(5px, 6px)";
+                dots[0].style.width = "24px";
+                dots[0].style.borderRadius = "0";
+                
+                dots[1].style.opacity = "0";
+                
+                dots[2].style.transform = "rotate(-45deg) translate(5px, -6px)";
+                dots[2].style.width = "24px";
+                dots[2].style.borderRadius = "0";
+                
+                // Show links
+                mobileLinks.forEach(link => {
+                    link.classList.remove('opacity-0', 'translate-y-5');
+                    link.classList.add('opacity-100', 'translate-y-0');
+                });
+            } else {
+                mobileOverlay.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileOverlay.classList.add('opacity-0', 'pointer-events-none');
+
+                // Reset dots
+                dots.forEach(dot => {
+                    dot.style.transform = "none";
+                    dot.style.width = "6px";
+                    dot.style.opacity = "1";
+                    dot.style.borderRadius = "9999px";
+                });
+                
+                // Hide links
+                mobileLinks.forEach(link => {
+                    link.classList.add('opacity-0', 'translate-y-5');
+                    link.classList.remove('opacity-100', 'translate-y-0');
+                });
+            }
+        }
+
+        mobileToggle.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('glass-nav');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.remove('glass-nav');
+                nav.classList.add('bg-transparent');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+
+        // Stats Counter Animation
+        const statsSection = document.getElementById('stats-section');
+        let statsAnimated = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    const counters = document.querySelectorAll('.stat-counter');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 3000; // 3 seconds
+                        const startTime = performance.now();
+
+                        const updateCounter = (currentTime) => {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            
+                            // Easing function for smooth animation
+                            const easeOutQuad = t => t * (2 - t);
+                            const currentVal = Math.floor(easeOutQuad(progress) * target);
+                            
+                            counter.innerText = currentVal;
+
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        requestAnimationFrame(updateCounter);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Video Player (HLS)
+        function initPlayer(id, url) {
+            const video = document.getElementById(id);
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = url;
+            }
+        }
+
+        initPlayer('video-1', 'https://stream.mux.com/LSZGOFT3Kqyeaq01X0101xrahMQwocFa00V00ZcJpB00cujq00.m3u8');
+        initPlayer('video-2', 'https://stream.mux.com/CtYau6mQ9C00GDxLjCmwhE5FONba00YZimPHNcdGPV5nY.m3u8');
+
+        // Init Icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
