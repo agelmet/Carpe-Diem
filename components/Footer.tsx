@@ -32,9 +32,9 @@ const Footer: React.FC = () => {
                     <span className="font-semibold">698 142 1964</span>
                 </a>
                 
-                <a href="mailto:carpediem@yahoo.gr" className="flex items-center gap-3 hover:text-[#6a4c93] transition-colors">
+                <a href="mailto:carpediempsychotherapy24@gmail.com" className="flex items-center gap-3 hover:text-[#6a4c93] transition-colors">
                     <Mail size={20} className="text-[#6a4c93]" />
-                    <span>carpediem@yahoo.gr</span>
+                    <span>carpediempsychotherapy24@gmail.com</span>
                 </a>
             </div>
 
