@@ -1,0 +1,5 @@
+# Carpe Diem (mycarpediem.gr) — static single-file site by Advon Media.
+# Publish the repo root as it is: no build step (the old Vite/React setup was removed on 19 Oct 2026).
+[build]
+  publish = "."
+  command = "echo static site"
