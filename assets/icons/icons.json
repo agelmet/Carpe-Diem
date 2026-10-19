@@ -1,0 +1,16 @@
+{
+ "source": {
+  "kind": "file",
+  "ref": "assets/img/carpe-diem-logo.png"
+ },
+ "source_md5": "1530e010f4e8ef60aa03487ebd4b9064",
+ "version": "b20bbed0",
+ "tile": null,
+ "crop": null,
+ "header": [
+  "file",
+  "assets/img/carpe-diem-logo-96.webp",
+  "83f5ad7335cde5aa47e120f718468642"
+ ],
+ "made": "2026-10-19"
+}

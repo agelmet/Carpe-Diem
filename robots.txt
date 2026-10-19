@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /index.backup-20261019.html
+Sitemap: https://www.mycarpediem.gr/sitemap.xml
