@@ -35,7 +35,7 @@
 <meta property="og:image:alt" content="Δανάη Μαρία Κανδηλιώτη, ψυχολόγος – Carpe Diem">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/noto-serif-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-763.webp" imagesrcset="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-560.webp 560w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-763.webp 763w" imagesizes="(max-width:980px) 100vw, 47vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-1600.webp" imagesrcset="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-560.webp 560w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-763.webp 763w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-1200.webp 1200w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <style id="advon-fonts">
 @font-face{font-family:'Noto Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/noto-serif-display-greek-ext-400-normal.woff2) format('woff2');unicode-range:U+1F00-1FFF}
 @font-face{font-family:'Noto Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/noto-serif-display-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
@@ -564,6 +564,53 @@ h2 em,.display em{font-style:italic;color:var(--violet)}
 }
 .mono[hidden],.sframe img[hidden]{display:none}
 
+/* ===== full-screen photo hero on desktop (Angelo, 19 Oct 2026: «image full screen as before, but way nicer») ===== */
+.hero-ph .shade,.hero-ph .grain,.hero-ph .glow{display:none}
+@media (min-width:981px){
+ .hero{display:block;min-height:100svh;background:#18112E}
+ .hero-r{position:absolute;inset:0;z-index:0}
+ .hero-ph{border-radius:0;box-shadow:none;inset:-4% 0 0 0}
+ .hero-ph img{object-position:50% 64%;animation:kb2 26s ease-in-out infinite alternate;transform-origin:62% 55%}
+ @keyframes kb2{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.2%,-.8%)}}
+ .hero-ph::after{display:none}
+ .hero-ph .shade{display:block;position:absolute;inset:0;background:
+   linear-gradient(90deg,rgba(24,17,46,.90) 0%,rgba(24,17,46,.74) 26%,rgba(24,17,46,.32) 52%,rgba(24,17,46,.04) 72%),
+   linear-gradient(0deg,rgba(24,17,46,.62) 0%,rgba(24,17,46,0) 34%),
+   linear-gradient(180deg,rgba(24,17,46,.55) 0%,rgba(24,17,46,0) 20%),
+   linear-gradient(120deg,rgba(139,84,255,.22),rgba(92,222,231,.10))}
+ .hero-ph .grain{display:block;position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+ .hero-ph .glow{display:block;position:absolute;inset:0;background:radial-gradient(520px circle at var(--gx,72%) var(--gy,42%),rgba(201,187,255,.20),transparent 62%);mix-blend-mode:screen;transition:background .2s}
+ .js .hero-ph{transform:scale(1.08);opacity:0;transition:transform 2s var(--ease),opacity 1.1s ease}
+ .hero.go .hero-ph{transform:none;opacity:1}
+ .hero-l{position:relative;z-index:2;min-height:100svh;width:min(820px,62%);padding-top:150px;padding-bottom:130px;color:#fff}
+ .hero .wash{display:none}
+ .arc .path{stroke:rgba(255,255,255,.28)}
+ .hero-chips span{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.26);color:#fff;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:none}
+ .hero-chips span:first-child{background:#fff;color:var(--ink);border-color:#fff}
+ .display{color:#fff;text-shadow:0 10px 40px rgba(10,6,24,.35)}
+ .display em{color:#CDBDFF}
+ .h1 .a{color:#fff}
+ .h1 .b{color:rgba(255,255,255,.86)}
+ .hero .btn-p{background:#fff;color:var(--ink);box-shadow:0 14px 40px rgba(10,6,24,.35)}
+ .hero .btn-p:hover{color:#fff}
+ .hero .tlink{color:#fff;border-color:rgba(255,255,255,.4)}
+ .hero .tlink:hover{border-color:#fff}
+ .hero-g{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 14px 40px rgba(10,6,24,.25);color:#fff}
+ .hero-g small{color:rgba(255,255,255,.75)}
+ .hero-ring{left:auto;right:clamp(40px,7vw,130px);top:22%;width:210px;height:210px}
+ .hero-ring .core{inset:38px;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+ .hero-hours{bottom:90px;right:clamp(40px,7vw,130px)}
+ .cue{bottom:76px;border-color:rgba(255,255,255,.5)}
+ .hd.dark .nav a{color:rgba(255,255,255,.86)}
+ .hd.dark .nav a:hover{color:#fff}
+ .hd.dark .brand .wm b{color:#fff}
+ .hd.dark .brand .wm b i{color:#CDBDFF}
+ .hd.dark .brand .wm small{color:rgba(255,255,255,.7)}
+ .hd.dark .soc a{border-color:rgba(255,255,255,.3);color:#fff}
+ .hd.dark .soc a:hover{background:#fff;color:var(--ink)}
+ .hd.dark .langs button[aria-pressed=true]{background:rgba(255,255,255,.18)}
+}
+
 </style>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MedicalBusiness", "@id": "#centre", "name": "Carpe Diem – Κέντρο Ψυχοθεραπείας", "alternateName": ["Carpe Diem Psychotherapy Centre", "Carpe Diem Κέντρο Ψυχοθεραπείας - Δανάη Μαρία Κανδηλιώτη"], "description": "Κέντρο Ψυχοθεραπείας Carpe Diem – Δανάη Μαρία Κανδηλιώτη & Συνεργάτες. Γνωσιακή Συμπεριφορική Θεραπεία, ατομική ψυχοθεραπεία ενηλίκων, θεραπεία ζεύγους και συμβουλευτική γονέων σε Εξάρχεια, Πειραιά, Περιστέρι και online.", "image": "https://www.mycarpediem.gr/assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-763.webp", "logo": "https://www.mycarpediem.gr/assets/img/carpe-diem-logo.png", "telephone": "+30 698 825 0491", "email": "carpediempsychotherapy24@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "Χαλκοκονδύλη 5, 6ος όροφος", "addressLocality": "Αθήνα", "postalCode": "106 77", "addressRegion": "Αττική", "addressCountry": "GR"}, "geo": {"@type": "GeoCoordinates", "latitude": 37.9857502, "longitude": 23.7305071}, "hasMap": "https://maps.google.com/?cid=2794243878662530444", "areaServed": ["Εξάρχεια", "Αθήνα", "Πειραιάς", "Περιστέρι"], "medicalSpecialty": "Psychiatric", "knowsAbout": ["Ατομική Ψυχοθεραπεία Ενηλίκων", "Γνωσιακή Συμπεριφορική Θεραπεία (CBT)", "Θεραπεία Ζεύγους", "Συμβουλευτική Γονέων", "Συμβουλευτική & Ψυχοεκπαίδευση", "Τρόποι Ψυχοθεραπείας", "Ψυχοθεραπεία", "Ψυχολόγος Εξάρχεια", "Ψυχολόγος Πειραιάς"], "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "39", "bestRating": "5"}, "founder": {"@id": "#danai"}, "sameAs": ["https://www.instagram.com/carpe_diem_health", "https://www.tiktok.com/@my_carpe_diem", "https://www.google.com/maps/place/data=!4m7!3m6!1s0x14a1bd0062d2d2c1:0x26c72600cb7d658c!8m2!3d37.9857502!4d23.7305071!9m1!1b1"], "department": [{"@id": "#piraeus"}, {"@id": "#peristeri"}]}, {"@type": "MedicalBusiness", "@id": "#piraeus", "name": "Carpe Diem – Κέντρο Ψυχοθεραπείας Πειραιάς", "telephone": "+30 698 825 0491", "address": {"@type": "PostalAddress", "streetAddress": "Γρηγορίου Λαμπράκη 144, 6ος όροφος", "addressLocality": "Πειραιάς", "addressRegion": "Αττική", "addressCountry": "GR"}, "geo": {"@type": "GeoCoordinates", "latitude": 37.9407604, "longitude": 23.6495239}, "hasMap": "https://maps.google.com/?cid=12229775243822628079", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "23", "bestRating": "5"}, "sameAs": ["https://www.google.com/maps/place/data=!4m7!3m6!1s0x14a1bb109fdc095b:0xa9b8e3c9c2e9fcef!8m2!3d37.9407604!4d23.6495239!9m1!1b1"]}, {"@type": "MedicalBusiness", "@id": "#peristeri", "name": "Carpe Diem – Κέντρο Ψυχοθεραπείας Περιστέρι", "telephone": "+30 698 825 0491", "address": {"@type": "PostalAddress", "streetAddress": "Ερυθραίας 15, 1ος όροφος", "addressLocality": "Περιστέρι", "addressRegion": "Αττική", "addressCountry": "GR"}}, {"@type": "Person", "@id": "#danai", "name": "Δανάη Μαρία Κανδηλιώτη", "alternateName": ["Danai Maria Kandilioti", "Δανάη Κανδηλιώτη"], "jobTitle": "Ψυχολόγος – Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια (MSc)", "image": "https://www.mycarpediem.gr/assets/img/danai-maria-kandilioti-psychologos-carpe-diem.webp", "worksFor": {"@id": "#centre"}, "knowsAbout": ["Γνωσιακή Συμπεριφορική Θεραπεία", "Αγχώδεις διαταραχές", "Διατροφικές διαταραχές", "Διαταραχές διάθεσης", "Διαταραχές προσωπικότητας"]}, {"@type": "WebSite", "@id": "#website", "name": "Carpe Diem – Κέντρο Ψυχοθεραπείας", "alternateName": ["Carpe Diem Psychotherapy Centre", "mycarpediem.gr"], "inLanguage": ["el", "en"]}]}</script>
@@ -596,7 +643,7 @@ h2 em,.display em{font-style:italic;color:var(--violet)}
 <div class="iw">Carpe <i>Diem</i></div></div></div>
 
 <div class="prog" aria-hidden="true"></div>
-<header class="hd"><div class="wrap">
+<header class="hd dark"><div class="wrap">
  <a class="brand" href="#top" aria-label="Carpe Diem – back to top" data-en-aria="Carpe Diem – back to top"><span class="chip"><img src="assets/img/carpe-diem-logo-96.webp" width="96" height="96" alt="Carpe Diem logo" data-en-alt="Carpe Diem logo"></span><span class="wm"><b>Carpe <i>Diem</i></b><small data-en="PSYCHOTHERAPY CENTRE">PSYCHOTHERAPY CENTRE</small></span></a>
  <nav class="nav" aria-label="Main menu" data-en-aria="Main menu"><a href="#ypiresies" data-en="Services">Services</a><a href="#synergates" data-en="Team">Team</a><a href="#video" data-en="Videos">Videos</a><a href="#sxetika" data-en="About us">About us</a><a href="#epikoinonia" data-en="Contact">Contact</a></nav>
  <div class="soc"><a href="https://www.instagram.com/carpe_diem_health" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@my_carpe_diem" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.2 1.8 3.7 4 4v3.1c-1.5 0-2.9-.5-4-1.2v6.3c0 3.4-2.6 5.8-5.8 5.8S5 18.6 5 15.4s2.7-5.9 6.2-5.6v3.2c-1.5-.3-3 .9-3 2.4 0 1.4 1.1 2.6 2.6 2.6s2.6-1.1 2.6-2.8V3h3.2z"/></svg></a></div>
@@ -621,7 +668,7 @@ h2 em,.display em{font-style:italic;color:var(--violet)}
   <a class="hero-g" href="#kritikes"><span class="gl"><svg viewBox="0 0 48 48" width="22" height="22"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><span><b>5,0</b> <span class="stars" aria-hidden="true"><svg style="--s:0" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg style="--s:1" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg style="--s:2" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg style="--s:3" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg style="--s:4" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg></span><small data-en="Google · dozens of reviews">Google · dozens of reviews</small></span></a>
  </div>
  <div class="hero-r">
-  <div class="hero-ph"><img src="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-763.webp" srcset="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-560.webp 560w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-763.webp 763w" sizes="(max-width:980px) 100vw, 47vw" width="763" height="1023" fetchpriority="high" decoding="async" alt="The Carpe Diem Psychotherapy Centre in Exarcheia, Athens" data-en-alt="The Carpe Diem Psychotherapy Centre in Exarcheia, Athens"></div>
+  <div class="hero-ph"><img src="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-1600.webp" srcset="assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-560.webp 560w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-763.webp 763w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-1200.webp 1200w, assets/img/carpe-diem-psychotherapeia-exarcheia-xoros-1600.webp 1600w" sizes="100vw" width="1600" height="2145" fetchpriority="high" decoding="async" alt="The Carpe Diem Psychotherapy Centre in Exarcheia, Athens" data-en-alt="The Carpe Diem Psychotherapy Centre in Exarcheia, Athens"><i class="shade" aria-hidden="true"></i><i class="grain" aria-hidden="true"></i><i class="glow" aria-hidden="true"></i></div>
   <div class="hero-ring" aria-hidden="true"><svg viewBox="0 0 184 184"><circle class="r1" cx="92" cy="92" r="86" stroke-dasharray="330 210"/><circle class="r2" cx="92" cy="92" r="78" stroke-dasharray="2 7"/></svg><div class="core"><img src="assets/img/carpe-diem-logo-192.webp" width="192" height="192" alt=""></div></div>
   <div class="hero-hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b data-en="Monday to Friday">Monday to Friday</b><span data-en="(by appointment)">(by appointment)</span></div></div>
  </div>
@@ -836,7 +883,7 @@ var tk=D.querySelector('.tk-skew'),lastY=W.scrollY,vel=0,spun=false,ticking=fals
 var sunStart=performance.now();
 function onScroll(){ticking=false;var y=W.scrollY,vh=W.innerHeight,dh=D.documentElement.scrollHeight-vh,p=dh>0?y/dh:0;
   prog.style.transform='scaleX('+p+')';
-  var solid=y>30; if(solid!==hd.classList.contains('solid')){hd.classList.toggle('solid',solid); if(solid&&!spun&&!RM){spun=true;hd.classList.add('spin')}}
+  var solid=y>30; hd.classList.toggle('dark',!solid); if(solid!==hd.classList.contains('solid')){hd.classList.toggle('solid',solid); if(solid&&!spun&&!RM){spun=true;hd.classList.add('spin')}}
   if(cue) cue.classList.toggle('off',y>60);
   if(mbar) mbar.classList.toggle('show',y>vh*.7);
   if(tt){tt.classList.toggle('show',y>vh*1.2); if(ttc) ttc.style.strokeDashoffset=(1-p)*151}
@@ -900,7 +947,7 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!RM) D.querySelectorA
   b.addEventListener('pointerleave',function(){b.style.transform=''})});
 
 /* ---------- hero pointer parallax ---------- */
-if(matchMedia('(hover:hover)').matches&&!RM){var ring=D.querySelector('.hero-ring');hero.addEventListener('pointermove',function(e){var x=e.clientX/W.innerWidth-.5,y=e.clientY/W.innerHeight-.5;if(ring)ring.style.translate=(x*-18)+'px '+(y*-18)+'px';D.querySelectorAll('.hero .wash').forEach(function(w,k){w.style.translate=(x*(k?30:-40))+'px '+(y*(k?24:-30))+'px'})})}
+if(matchMedia('(hover:hover)').matches&&!RM){var ring=D.querySelector('.hero-ring');hero.addEventListener('pointermove',function(e){var x=e.clientX/W.innerWidth-.5,y=e.clientY/W.innerHeight-.5;if(ring)ring.style.translate=(x*-18)+'px '+(y*-18)+'px';var hp=D.querySelector('.hero-ph');if(hp){hp.style.setProperty('--gx',(e.clientX/W.innerWidth*100)+'%');hp.style.setProperty('--gy',(e.clientY/W.innerHeight*100)+'%')}D.querySelectorAll('.hero .wash').forEach(function(w,k){w.style.translate=(x*(k?30:-40))+'px '+(y*(k?24:-30))+'px'})})}
 
 /* ---------- ambient layer per section (pauses off screen) ---------- */
 var LEAF='<svg viewBox="0 0 20 20"><path d="M10 18C10 11 14 6 19 4c-1 6-4 10-9 14zM10 18C10 12 6 8 1 7c1 5 4 9 9 11z" fill="url(#ag)"/></svg>';
