@@ -1057,3 +1057,7 @@ a.svc{color:inherit}
 .tide-in{padding-bottom:0!important}
 .tide-sea{aspect-ratio:16/6;min-height:0;max-height:760px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 11%);mask-image:linear-gradient(180deg,transparent 0,#000 11%)}
 @media (max-width:760px){.tide-sea{min-height:0;height:330px;aspect-ratio:auto;margin-top:-6px!important}.tide-sea img,.tide-v{top:auto;bottom:0;height:440px;inset:auto 0 0 0}}
+/* fixes: button hover colours everywhere; services link always clickable */
+@media (hover:hover){.btn.ghost:hover,.btn.glass:hover,.tide .btn.ghost:hover{background:var(--ink)!important;color:var(--foam)!important;-webkit-backdrop-filter:none;backdrop-filter:none}.btn:hover svg{color:inherit}}
+.stg-bg,.stg-im,.stg-im img{pointer-events:none}
+.stg-all{position:relative;z-index:5}
