@@ -1045,3 +1045,9 @@ a.svc{color:inherit}
 .tide-in{padding-bottom:clamp(8px,1.5vw,20px)!important}
 .tide-sea{margin-top:0!important;aspect-ratio:16/7.5;min-height:400px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%);mask-image:linear-gradient(180deg,transparent 0,#000 24%)}
 @media (max-width:760px){.tide-sea{min-height:430px;margin-top:0!important}}
+/* reviews: two rows drifting in opposite directions */
+.marq-tr{animation-duration:var(--dur,90s)}
+.marq.rev2{margin-top:-14px}.marq.rev2 .marq-tr{animation-direction:reverse}
+.rvc{display:inline-flex;align-items:center;gap:12px;margin-top:18px;padding:10px 20px;border-radius:999px;background:rgba(252,250,246,.75);box-shadow:var(--sh1);font:600 13px/1 var(--sans);letter-spacing:.06em;color:var(--ink)}
+.rvc b{font:400 26px/1 var(--serif);letter-spacing:0;color:var(--clay)}
+.rvc i{font-style:normal;color:#C9A35E;letter-spacing:.12em}
