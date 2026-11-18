@@ -951,3 +951,4 @@ a.svc{color:inherit}
 }
 @media (max-width:760px){.stg-pin{padding-bottom:calc(92px + env(safe-area-inset-bottom))}}
 @media (max-width:760px) and (max-height:720px){.stg-bg{height:38svh;min-height:200px}.stg-l{height:150px}.stg-t h3{font-size:24px}.stg-t p{font-size:15px}}
+.stg-im{grid-template-rows:100%;grid-template-columns:100%}.stg-im img{justify-self:center;align-self:center}
