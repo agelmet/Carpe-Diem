@@ -1051,3 +1051,9 @@ a.svc{color:inherit}
 .rvc{display:inline-flex;align-items:center;gap:12px;margin-top:18px;padding:10px 20px;border-radius:999px;background:rgba(252,250,246,.75);box-shadow:var(--sh1);font:600 13px/1 var(--sans);letter-spacing:.06em;color:var(--ink)}
 .rvc b{font:400 26px/1 var(--serif);letter-spacing:0;color:var(--clay)}
 .rvc i{font-style:normal;color:#C9A35E;letter-spacing:.12em}
+/* articles appear at once */
+.arts-eq .art-img img{transform:none}
+/* «Κάθε αλλαγή…» sits close to the wave */
+.tide-in{padding-bottom:0!important}
+.tide-sea{aspect-ratio:16/6;min-height:0;max-height:760px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 11%);mask-image:linear-gradient(180deg,transparent 0,#000 11%)}
+@media (max-width:760px){.tide-sea{min-height:0;height:330px;aspect-ratio:auto;margin-top:-6px!important}.tide-sea img,.tide-v{top:auto;bottom:0;height:440px;inset:auto 0 0 0}}
