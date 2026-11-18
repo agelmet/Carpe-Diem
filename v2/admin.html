@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Διαχείριση · Carpe Diem</title><meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="light only">
+<link rel="icon" href="favicon.ico?v=cd2" sizes="48x48"><link rel="icon" href="assets/icons/favicon.svg?v=cd2" type="image/svg+xml">
+<style>
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-greek-ext-400-normal.woff2) format('woff2');unicode-range:U+1F00-1FFF}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-greek-ext-400-italic.woff2) format('woff2');unicode-range:U+1F00-1FFF}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-greek-400-italic.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-greek-ext-500-normal.woff2) format('woff2');unicode-range:U+1F00-1FFF}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-greek-500-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-greek-ext-500-italic.woff2) format('woff2');unicode-range:U+1F00-1FFF}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-greek-500-italic.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-latin-ext-500-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/manrope-greek-500-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/manrope-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/manrope-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/manrope-greek-600-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/manrope-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/manrope-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{--paper:#F6F1EA;--card:#FFFDF9;--sand:#E8DFD3;--ink:#2B231D;--ink2:#4A3F36;--mute:#7A6C60;--bronze:#7A5C41;--clay:#B08A63;--line:rgba(43,35,29,.13);--ok:#3E7B4F;--warn:#9A6A1E;--err:#9E3B2C;color-scheme:light only}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink2);font:400 16px/1.6 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer}[hidden]{display:none!important}
+h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;color:var(--ink);margin:0}
+.lotus{width:46px;color:var(--bronze);fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+#login{min-height:100svh;display:grid;place-items:center;padding:24px}
+.lcard{width:min(440px,100%);background:var(--card);border-radius:18px;padding:40px 34px;box-shadow:0 30px 70px -30px rgba(60,44,30,.4);text-align:center}
+.lcard h1{font-size:36px;font-style:italic;margin:14px 0 6px}.lcard p{color:var(--mute);margin:0 0 24px}
+.lcard input{width:100%;height:56px;border-radius:12px;border:1px solid var(--line);background:var(--paper);font:500 22px/1 'Manrope';letter-spacing:.3em;text-align:center;margin-bottom:12px}
+.lcard input:focus{outline:0;border-color:var(--bronze);box-shadow:0 0 0 4px rgba(176,138,99,.18)}
+.lerr{color:var(--err);font-size:14px}
+.steps3{text-align:left;margin:26px 0 0;padding:18px 0 0;border-top:1px solid var(--line);font-size:14px;color:var(--mute);display:grid;gap:8px;counter-reset:s;list-style:none}
+.steps3 li{counter-increment:s;display:flex;gap:10px}.steps3 li::before{content:counter(s);flex:none;width:22px;height:22px;border-radius:50%;background:var(--sand);color:var(--bronze);font:600 12px/22px 'Manrope';text-align:center}
+.b1,.b2,.b3{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;border:0;font-weight:600;font-size:14.5px}
+.b1{background:var(--ink);color:#FBF7F1;width:100%}.b1:hover{background:var(--bronze)}
+.b2{background:var(--sand);color:var(--ink)}.b2:hover{background:#DCCFBF}
+.b3{background:transparent;color:var(--err);box-shadow:inset 0 0 0 1px rgba(158,59,44,.35)}
+#app{display:grid;grid-template-columns:270px 1fr;min-height:100svh}
+aside{position:sticky;top:0;height:100svh;overflow:auto;background:#EFE8DE;border-right:1px solid var(--line);padding:22px 14px;display:flex;flex-direction:column;gap:6px}
+.abrand{display:flex;align-items:center;gap:10px;padding:4px 10px 18px}
+.abrand b{font:500 19px/1 'EB Garamond';letter-spacing:.14em;color:var(--ink)}.abrand small{display:block;font-size:11px;color:var(--mute);letter-spacing:.06em;margin-top:4px}
+.abrand .lotus{width:34px}
+#nav{display:flex;flex-direction:column;gap:2px}
+#nav button{display:flex;align-items:center;gap:12px;text-align:left;border:0;background:transparent;padding:12px 12px;border-radius:12px;font-weight:500;color:var(--ink2);min-height:46px}
+#nav button i{font-style:normal;width:24px;text-align:center;color:var(--clay)}
+#nav button:hover{background:rgba(255,253,249,.6)}#nav button[aria-current]{background:var(--card);color:var(--ink);box-shadow:0 4px 14px -8px rgba(60,44,30,.3)}
+.aside-ft{margin-top:auto;display:grid;gap:8px;padding-top:16px}
+.aside-ft a,.aside-ft button{display:block;text-align:center;padding:10px;border-radius:10px;border:0;background:transparent;color:var(--mute);font-size:13.5px;text-decoration:none}
+.aside-ft a:hover,.aside-ft button:hover{background:rgba(255,253,249,.6);color:var(--ink)}
+#mode{background:#F6D77A;color:#3A2C10;border-radius:12px;padding:12px;font-size:12.5px;line-height:1.45}
+.mainw{min-width:0;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:12px clamp(16px,3vw,40px);background:rgba(246,241,234,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+#menu{display:none;border:0;background:var(--card);width:46px;height:46px;border-radius:12px;font-size:20px}
+.st{font-size:13.5px;font-weight:600;margin-right:auto}.st.ok{color:var(--ok)}.st.warn{color:var(--warn)}
+.top .b1{width:auto}
+#ed{padding:clamp(18px,3vw,44px);max-width:900px;width:100%}
+.sec-hd{margin-bottom:26px}.sec-hd h2{font-size:clamp(34px,4vw,46px);font-style:italic;margin-bottom:6px}.sec-hd p{color:var(--mute);max-width:640px;margin:0 0 14px}
+.sec-hd .b1{width:auto}
+.back{border:0;background:transparent;color:var(--bronze);font-weight:600;padding:8px 0;margin-bottom:6px}
+.fld{background:var(--card);border-radius:14px;padding:18px 20px;margin-bottom:12px;box-shadow:0 2px 10px -6px rgba(60,44,30,.25)}
+.lab{display:block;font-weight:600;font-size:14px;color:var(--ink);margin-bottom:8px}.lab small{display:block;font-weight:400;color:var(--mute);font-size:13px;margin-top:2px}
+.fld input[type=text],.fld input[type=url],.fld input[type=date],.fld textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:12px 14px;font:400 16px/1.6 'Manrope';color:var(--ink)}
+.fld textarea{resize:vertical;min-height:84px;overflow:hidden}
+.fld input:focus,.fld textarea:focus,.rich:focus{outline:0;border-color:var(--bronze);box-shadow:0 0 0 4px rgba(176,138,99,.16)}
+.imgf{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.imgf img{width:120px;height:120px;object-fit:contain;background:var(--sand);border-radius:10px}.imgf>div{display:flex;flex-wrap:wrap;gap:8px}
+.noimg{display:grid;place-items:center;width:120px;height:120px;border-radius:10px;background:var(--sand);color:var(--mute);font-size:12px;text-align:center}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}.gal figure{margin:0;background:var(--sand);border-radius:10px;overflow:hidden}
+.gal img{width:100%;height:110px;object-fit:contain;display:block}.gal figure div{display:flex;justify-content:space-between;padding:4px}
+.gal figure button{border:0;background:var(--card);width:36px;height:32px;border-radius:8px}
+.addimg{border:1.5px dashed var(--clay);background:transparent;border-radius:10px;min-height:150px;color:var(--bronze);font-weight:600}
+.fld-list{background:transparent;box-shadow:none;padding:0}
+.lhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 0 10px}.lhead h3{font-size:26px;font-style:italic}
+.item{background:var(--card);border-radius:14px;margin-bottom:10px;box-shadow:0 2px 10px -6px rgba(60,44,30,.25);overflow:hidden}
+.item summary{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;list-style:none;min-height:56px}
+.item summary::-webkit-details-marker{display:none}
+.item .in{width:28px;height:28px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--bronze);flex:none}
+.item summary b{flex:1;font-weight:600;color:var(--ink)}
+.acts{display:flex;gap:4px}.acts button{border:0;background:var(--paper);width:38px;height:38px;border-radius:10px;color:var(--ink2)}
+.acts .b2{width:auto;height:38px;min-height:0;padding:0 14px}
+.item .ib{padding:4px 14px 14px}.item .ib .fld{box-shadow:none;border:1px solid var(--line);padding:14px}
+.alist{display:grid;gap:10px}
+.acard{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:14px;padding:12px;box-shadow:0 2px 10px -6px rgba(60,44,30,.25)}
+.acard img,.acard .noimg{width:62px;height:78px;object-fit:cover;border-radius:8px;flex:none}
+.acard>div{flex:1;min-width:0}.acard b{display:block;color:var(--ink);font-weight:600;line-height:1.35}.acard small{color:var(--mute)}
+.acard.off{opacity:.6}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sw{display:flex;align-items:center;gap:10px;min-height:46px}.sw input{width:22px;height:22px;accent-color:var(--bronze)}
+.tb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;position:sticky;top:72px;z-index:3;background:var(--card);padding:6px 0}
+.tb button{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 12px;font-size:13.5px}
+.tb button:hover{background:var(--sand)}
+.rich{min-height:340px;border:1px solid var(--line);border-radius:10px;background:#FFFEFB;padding:18px 20px;font:400 19px/1.65 'EB Garamond',Georgia,serif;color:var(--ink2)}
+.rich h2{font-size:28px;font-style:italic;margin:1em 0 .4em}.rich h3{font:600 14px/1.4 'Manrope';letter-spacing:.1em;text-transform:uppercase;color:var(--bronze);margin:1.2em 0 .5em}
+.rich blockquote{margin:1em 0;padding-left:18px;border-left:2px solid var(--clay);font-style:italic}
+.danger{background:transparent;box-shadow:none;padding:6px 0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;z-index:20;background:var(--ink);color:#FBF7F1;padding:14px 22px;border-radius:999px;font-weight:600;font-size:14.5px;transition:all .4s;max-width:calc(100% - 30px);text-align:center;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}.toast.err{background:var(--err)}
+@media (max-width:860px){
+  #app{grid-template-columns:1fr}aside{position:fixed;inset:0 auto 0 0;width:min(300px,86vw);z-index:10;transform:translateX(-102%);transition:transform .35s;box-shadow:20px 0 60px -20px rgba(0,0,0,.3)}
+  body.navopen aside{transform:none}#menu{display:block}.two{grid-template-columns:1fr}.top .b2 span{display:none}
+}
+</style></head>
+<body>
+<section id="login"><form class="lcard" id="lform">
+<svg class="lotus" viewBox="0 0 48 30" aria-hidden="true"><path d="M24 3.5c4.6 5.6 4.6 15 0 22.5-4.6-7.5-4.6-16.9 0-22.5z"/><path d="M24 26c-2.2-6.6-7.4-11.4-14.6-12.4 1.3 7.3 6.8 12.1 14.6 12.4z"/><path d="M24 26c2.2-6.6 7.4-11.4 14.6-12.4-1.3 7.3-6.8 12.1-14.6 12.4z"/><path d="M24 26c-5.6-1.1-11-4.8-18.6-5.3 3.4 4.2 10.6 5.8 18.6 5.3z"/><path d="M24 26c5.6-1.1 11-4.8 18.6-5.3-3.4 4.2-10.6 5.8-18.6 5.3z"/></svg>
+<h1>Διαχείριση ιστοσελίδας</h1><p>Carpe Diem · γράψτε τον κωδικό σας</p>
+<input id="pass" type="password" inputmode="numeric" autocomplete="current-password" placeholder="••••••" aria-label="Κωδικός">
+<p class="lerr" id="lerr" hidden>Ο κωδικός δεν είναι σωστός.</p>
+<button class="b1" type="submit">Είσοδος</button>
+<ol class="steps3"><li>Διαλέξτε αριστερά τι θέλετε να αλλάξετε.</li><li>Αλλάξτε κείμενο ή φωτογραφία — αποθηκεύεται μόνο του.</li><li>Πατήστε «Δημοσίευση» και η ιστοσελίδα ενημερώνεται.</li></ol>
+</form></section>
+<div id="app" hidden>
+<aside><div class="abrand"><svg class="lotus" viewBox="0 0 48 30" aria-hidden="true"><path d="M24 3.5c4.6 5.6 4.6 15 0 22.5-4.6-7.5-4.6-16.9 0-22.5z"/><path d="M24 26c-2.2-6.6-7.4-11.4-14.6-12.4 1.3 7.3 6.8 12.1 14.6 12.4z"/><path d="M24 26c2.2-6.6 7.4-11.4 14.6-12.4-1.3 7.3-6.8 12.1-14.6 12.4z"/></svg><div><b>CARPE DIEM</b><small>Διαχείριση ιστοσελίδας</small></div></div>
+<nav id="nav" aria-label="Ενότητες"></nav>
+<div class="aside-ft"><p id="mode" hidden>Δοκιμαστική λειτουργία: οι αλλαγές σας φαίνονται μόνο σε αυτή τη συσκευή, μέχρι να ανέβει η νέα ιστοσελίδα.</p><a href="index.html" target="_blank" rel="noopener">Άνοιγμα ιστοσελίδας ↗</a><button type="button" id="undo">Επαναφορά προηγούμενης μορφής</button><button type="button" id="out">Έξοδος</button></div></aside>
+<div class="mainw"><div class="top"><button type="button" id="menu" aria-label="Μενού">☰</button><span class="st ok" id="state">Όλα δημοσιευμένα ✓</span><button type="button" class="b2" id="prev"><span>Προεπισκόπηση</span></button><button type="button" class="b1" id="pub">Δημοσίευση</button></div>
+<div id="ed"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="assets/js/admin.js?v=mwm1niqv"></script>
+</body></html>

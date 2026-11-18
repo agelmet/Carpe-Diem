@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /arthro.html
+
+Sitemap: https://mycarpediem.gr/sitemap.xml
