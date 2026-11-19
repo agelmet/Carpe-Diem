@@ -1114,3 +1114,7 @@ a.svc{color:inherit}
  .marq.rev2{margin-top:14px}
  .marq .rv{width:auto!important;max-width:none!important;min-width:0!important;flex:none}
 }
+/* v3i: the service picture on the home page opens its service page */
+.stg-bg{pointer-events:none}.stg-im{pointer-events:none;text-decoration:none;color:inherit}.stg-im img{pointer-events:none}
+.stg-im.on{pointer-events:auto;cursor:pointer}
+@media (hover:hover){.stg-im.on img{transition:filter .4s ease}.stg-im.on:hover img{filter:contrast(1.06) saturate(1.08) brightness(1.02)}}
