@@ -1093,3 +1093,9 @@ a.svc{color:inherit}
 .bb-vid .bb{-webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);background:#EBDDCB}
 .bb-v{display:block;width:100%;aspect-ratio:16/9;max-height:92vh;object-fit:cover;object-position:50% 55%}
 @media (max-width:760px){.bb-v{aspect-ratio:4/5;max-height:none;object-position:50% 38%}}
+/* v3h: the hero sea (with the carved lettering) at the foot of every page */
+.tide-kyma{aspect-ratio:16/9!important;height:auto!important;max-height:none!important;min-height:0!important}
+.tide-kyma picture{display:contents}
+.tide-kyma img,.tide-kyma .tide-v{position:absolute!important;inset:0!important;top:0!important;width:100%!important;height:100%!important;object-fit:cover;object-position:50% 55%!important}
+.tide-kyma::before{background:linear-gradient(180deg,transparent 84%,rgba(43,35,29,.35) 95%,var(--deep) 100%)!important}
+@media (max-width:760px){.tide-kyma{aspect-ratio:4/5!important;height:auto!important}.tide-kyma img,.tide-kyma .tide-v{object-position:50% 38%!important;height:100%!important}}
