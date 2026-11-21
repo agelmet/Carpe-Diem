@@ -1132,3 +1132,7 @@ a.svc{color:inherit}
 .bio-drop{-webkit-mask-image:none!important;mask-image:none!important;border-radius:18px;overflow:hidden;box-shadow:var(--sh3);max-width:360px;margin-inline:auto}
 .bio-drop img{aspect-ratio:1200/2179!important;object-fit:contain!important;object-position:50% 50%!important;max-height:78vh!important;width:auto!important;max-width:100%;margin-inline:auto;transform:none!important;display:block}
 .bio-drop .bio-rip{display:none}
+/* 5 review platforms (Google Περιστέρι added 21 Nov 2026) */
+.pfs{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:1180px){.pfs{grid-template-columns:repeat(6,minmax(0,1fr))}.pfs>.pf{grid-column:span 2}.pfs>.pf:nth-child(n+4){grid-column:span 3}}
+@media (max-width:900px){.pfs{grid-template-columns:1fr 1fr}.pfs>.pf,.pfs>.pf:nth-child(n+4){grid-column:auto}.pfs>.pf:last-child:nth-child(odd){grid-column:1/-1}}
