@@ -2,7 +2,7 @@
 import { getStore } from '@netlify/blobs';
 import { createHash } from 'node:crypto';
 export const store = () => getStore({ name: 'carpediem', consistency: 'strong' });
-const HASH = '835db1232c39bd29121c55fb2eb683c862b1ab1ac6b79fd528822d28549d3e06';
+const HASH = 'b03c6c619ac37772d173ffd4f2505fcd3dbe43f519e6ea29ab7988a4b3e51304';
 export function okPass(p) {
   const env = process.env.ADMIN_PASS;
   if (env) return typeof p === 'string' && p === env;
