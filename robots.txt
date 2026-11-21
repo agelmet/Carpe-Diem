@@ -4,4 +4,4 @@ Disallow: /admin.html
 Disallow: /arthro.html
 Disallow: /ypiresia.html
 
-Sitemap: https://mycarpediem.gr/sitemap.xml
+Sitemap: https://www.mycarpediem.gr/sitemap.xml
